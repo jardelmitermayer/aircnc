@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-
+const cors = require('cors');
 const routes = require('./routes');
 
 const app = express();
@@ -18,5 +18,5 @@ mongoose.connect('mongodb://omni:omni@aircnc-shard-00-00-9kjqs.mongodb.net:27017
 
 app.use(express.json());
 app.use(routes);
-
-app.listen(3333);
+app.use(cors());
+app.listen(process.env.PORT || 3333);
